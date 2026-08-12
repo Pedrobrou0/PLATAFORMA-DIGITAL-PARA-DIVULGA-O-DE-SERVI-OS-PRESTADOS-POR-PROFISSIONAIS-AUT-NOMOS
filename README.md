@@ -388,3 +388,11 @@ deactivate
 Projeto acadêmico em desenvolvimento.
 
 A estrutura inicial do Django e a organização dos aplicativos estão configuradas. As funcionalidades e regras de negócio serão implementadas progressivamente durante o desenvolvimento.
+## Documentação técnica
+
+
+### Diagrama de Classes
+
+O diagrama de classes apresenta as principais entidades do sistema, seus atributos, métodos e relacionamentos previstos para a aplicação.
+
+![Diagrama de Classes](docs/diagramas/Classes.1.png)
