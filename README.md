@@ -395,4 +395,4 @@ A estrutura inicial do Django e a organização dos aplicativos estão configura
 
 O diagrama de classes apresenta as principais entidades do sistema, seus atributos, métodos e relacionamentos previstos para a aplicação.
 
-![Diagrama de Classes](docs/diagramas/Classes_2.1)
+![Diagrama de Classes](docs/diagramas/Classes_2.1.png)
