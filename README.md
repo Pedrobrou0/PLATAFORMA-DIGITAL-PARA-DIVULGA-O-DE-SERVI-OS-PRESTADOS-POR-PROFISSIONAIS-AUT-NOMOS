@@ -396,3 +396,9 @@ A estrutura inicial do Django e a organização dos aplicativos estão configura
 O diagrama de classes apresenta as principais entidades do sistema, seus atributos, métodos e relacionamentos previstos para a aplicação.
 
 ![Diagrama de Classes](docs/diagramas/Classes_2.1.png)
+
+### Diagrama de Casos de Uso
+
+O Diagrama de Casos de Uso apresenta as principais funcionalidades da plataforma e as interações dos atores com o sistema, organizadas de acordo com os módulos funcionais definidos no Documento de Requisitos.
+
+📄 [Visualizar documentação completa dos Casos de Uso](docs/documentos/Casos_de_Uso.pdf)
