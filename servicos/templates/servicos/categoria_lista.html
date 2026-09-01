@@ -23,13 +23,12 @@
         {% for categoria in categorias %}
 
             <li>
+                {{ categoria.nome }}
 
                 <a href="{% url 'detalhe_categoria' categoria.id %}">
-                    {{ categoria.nome }}
+                Detalhar
                 </a>
-
             </li>
-
         {% empty %}
 
             <li>

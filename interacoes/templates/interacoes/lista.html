@@ -23,11 +23,11 @@
         {% for solicitacao in solicitacoes %}
 
             <li>
+                {{ solicitacao }}
 
                 <a href="{% url 'detalhe_solicitacao' solicitacao.id %}">
-                    {{ solicitacao }}
+                    Detalhar
                 </a>
-
             </li>
 
         {% empty %}

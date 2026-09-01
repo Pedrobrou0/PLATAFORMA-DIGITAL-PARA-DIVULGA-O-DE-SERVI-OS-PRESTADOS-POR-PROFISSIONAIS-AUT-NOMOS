@@ -22,13 +22,13 @@
 
         {% for profissional in profissionais %}
 
-            <li>
+        <li>
+            {{ profissional }}
 
-                <a href="{% url 'detalhe_profissional' profissional.id %}">
-                    {{ profissional }}
-                </a>
-
-            </li>
+            <a href="{% url 'detalhe_profissional' profissional.id %}">
+            Detalhar
+            </a>
+        </li>
 
         {% empty %}
 

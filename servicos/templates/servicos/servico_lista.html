@@ -23,11 +23,11 @@
         {% for servico in servicos %}
 
             <li>
+                {{ servico.titulo }}
 
                 <a href="{% url 'detalhe_servico' servico.id %}">
-                    {{ servico.titulo }}
+                    Detalhar
                 </a>
-
             </li>
 
         {% empty %}
