@@ -20,7 +20,14 @@ def detalhe_solicitacao(request, id):
 
 
 def criar_solicitacao(request):
-    form = SolicitacaoForm(request.POST or None)
+    servico_id = request.GET.get('servico')
+
+    form = SolicitacaoForm(
+        request.POST or None,
+        initial={
+            'servico': servico_id
+        }
+    )
 
     if form.is_valid():
         form.save()

@@ -56,17 +56,19 @@ def editar_categoria(request, id):
     })
 
 
-def deletar_categoria(request, id):
+def detalhe_categoria(request, id):
     categoria = Categoria.objects.get(id=id)
 
-    if request.method == 'POST':
-        categoria.delete()
+    profissionais = categoria.profissionais.all()
 
-        return redirect('lista_categorias')
+    servicos = Servico.objects.filter(
+        categoria=categoria
+    )
 
-    return render(request, 'servicos/confirmar_delete.html', {
-        'objeto': categoria,
-        'lista_url': 'lista_categorias'
+    return render(request, 'servicos/categoria_detalhe.html', {
+        'categoria': categoria,
+        'profissionais': profissionais,
+        'servicos': servicos
     })
 
 def lista_servicos(request):
