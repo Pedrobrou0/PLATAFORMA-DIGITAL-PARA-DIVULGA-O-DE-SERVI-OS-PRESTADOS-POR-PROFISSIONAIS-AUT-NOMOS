@@ -1,0 +1,26 @@
+<h1>{{ profissional }}</h1>
+
+<p>Usuário: {{ profissional.username }}</p>
+<p>Nome: {{ profissional.first_name }} {{ profissional.last_name }}</p>
+<p>E-mail: {{ profissional.email }}</p>
+<p>Telefone: {{ profissional.telefone }}</p>
+<p>Cidade: {{ profissional.cidade }}</p>
+<p>Descrição: {{ profissional.descricao }}</p>
+
+<h2>Categorias</h2>
+
+<ul>
+    {% for categoria in profissional.categorias.all %}
+        <li>{{ categoria.nome }}</li>
+    {% empty %}
+        <li>Nenhuma categoria.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'editar_profissional' profissional.id %}">
+    Editar
+</a>
+
+<a href="{% url 'deletar_profissional' profissional.id %}">
+    Excluir
+</a>
