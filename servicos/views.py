@@ -68,3 +68,73 @@ def deletar_categoria(request, id):
         'objeto': categoria,
         'lista_url': 'lista_categorias'
     })
+
+def lista_servicos(request):
+    servicos = Servico.objects.all()
+
+    return render(request, 'servicos/servico_lista.html', {
+        'servicos': servicos
+    })
+
+
+def detalhe_servico(request, id):
+    servico = Servico.objects.get(id=id)
+
+    return render(request, 'servicos/servico_detalhe.html', {
+        'servico': servico
+    })
+
+
+def criar_servico(request):
+    form = ServicoForm(
+        request.POST or None,
+        request.FILES or None
+    )
+
+    if form.is_valid():
+        form.save()
+        servicos = Servico.objects.all()
+
+        return render(request, 'servicos/servico_lista.html', {
+            'servicos': servicos
+        })
+
+    return render(request, 'servicos/servico_form.html', {
+        'form': form
+    })
+
+
+def editar_servico(request, id):
+    servico = Servico.objects.get(id=id)
+
+    form = ServicoForm(
+        request.POST or None,
+        request.FILES or None,
+        instance=servico
+    )
+
+    if form.is_valid():
+        form.save()
+        servicos = Servico.objects.all()
+
+        return render(request, 'servicos/servico_lista.html', {
+            'servicos': servicos
+        })
+
+    return render(request, 'servicos/servico_form.html', {
+        'form': form
+    })
+
+
+def deletar_servico(request, id):
+    servico = Servico.objects.get(id=id)
+
+    if request.method == 'POST':
+        servico.delete()
+
+        return redirect('lista_servicos')
+
+    return render(request, 'servicos/confirmar_delete.html', {
+        'objeto': servico,
+        'lista_url': 'lista_servicos'
+    })
