@@ -1,0 +1,52 @@
+{% extends 'servicos/base.html' %}
+
+
+{% block title %}
+
+    Serviço
+
+{% endblock %}
+
+
+{% block content %}
+
+    <h2>
+        {{ servico.titulo }}
+    </h2>
+
+    <p>
+        Profissional:
+        {{ servico.profissional }}
+    </p>
+
+    <p>
+        Categoria:
+        {{ servico.categoria }}
+    </p>
+
+    <p>
+        Descrição:
+        {{ servico.descricao }}
+    </p>
+
+    <p>
+        Preço:
+        R$ {{ servico.preco }}
+    </p>
+
+    <p>
+        Data:
+        {{ servico.data_cadastro }}
+    </p>
+
+    <a href="{% url 'editar_servico' servico.id %}">
+        Editar
+    </a>
+
+    |
+
+    <a href="{% url 'deletar_servico' servico.id %}">
+        Excluir
+    </a>
+
+{% endblock %}

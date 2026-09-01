@@ -1,0 +1,38 @@
+{% extends 'servicos/base.html' %}
+
+
+{% block title %}
+
+    Confirmar exclusão
+
+{% endblock %}
+
+
+{% block content %}
+
+    <h2>
+        Confirmar exclusão
+    </h2>
+
+    <p>
+        Tem certeza que deseja excluir
+        "{{ objeto }}"?
+    </p>
+
+    <form method="post">
+
+        {% csrf_token %}
+
+        <button type="submit">
+            Sim, excluir
+        </button>
+
+    </form>
+
+    <br>
+
+    <a href="{% url lista_url %}">
+        Cancelar
+    </a>
+
+{% endblock %}

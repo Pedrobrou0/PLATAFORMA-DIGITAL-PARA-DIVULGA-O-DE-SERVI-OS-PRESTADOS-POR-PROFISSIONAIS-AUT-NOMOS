@@ -1,0 +1,29 @@
+{% extends 'servicos/base.html' %}
+
+
+{% block title %}
+
+    Categoria
+
+{% endblock %}
+
+
+{% block content %}
+
+    <h2>
+        Categoria
+    </h2>
+
+    <form method="post">
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit">
+            Salvar
+        </button>
+
+    </form>
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'servicos/base.html' %}
+
+
+{% block title %}
+
+    Categorias
+
+{% endblock %}
+
+
+{% block content %}
+
+    <h2>
+        Categorias
+    </h2>
+
+    <a href="{% url 'criar_categoria' %}">
+        Nova categoria
+    </a>
+
+    <ul>
+
+        {% for categoria in categorias %}
+
+            <li>
+
+                <a href="{% url 'detalhe_categoria' categoria.id %}">
+                    {{ categoria.nome }}
+                </a>
+
+            </li>
+
+        {% empty %}
+
+            <li>
+                Nenhuma categoria cadastrada.
+            </li>
+
+        {% endfor %}
+
+    </ul>
+
+{% endblock %}

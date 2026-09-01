@@ -1,0 +1,49 @@
+{% extends 'servicos/base.html' %}
+
+
+{% block title %}
+
+    Categoria
+
+{% endblock %}
+
+
+{% block content %}
+
+    <h2>
+        {{ categoria.nome }}
+    </h2>
+
+    <h3>
+        Profissionais
+    </h3>
+
+    <ul>
+
+        {% for profissional in categoria.profissionais.all %}
+
+            <li>
+                {{ profissional }}
+            </li>
+
+        {% empty %}
+
+            <li>
+                Nenhum profissional associado.
+            </li>
+
+        {% endfor %}
+
+    </ul>
+
+    <a href="{% url 'editar_categoria' categoria.id %}">
+        Editar
+    </a>
+
+    |
+
+    <a href="{% url 'deletar_categoria' categoria.id %}">
+        Excluir
+    </a>
+
+{% endblock %}

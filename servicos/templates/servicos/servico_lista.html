@@ -1,0 +1,43 @@
+{% extends 'servicos/base.html' %}
+
+
+{% block title %}
+
+    Serviços
+
+{% endblock %}
+
+
+{% block content %}
+
+    <h2>
+        Serviços
+    </h2>
+
+    <a href="{% url 'criar_servico' %}">
+        Novo serviço
+    </a>
+
+    <ul>
+
+        {% for servico in servicos %}
+
+            <li>
+
+                <a href="{% url 'detalhe_servico' servico.id %}">
+                    {{ servico.titulo }}
+                </a>
+
+            </li>
+
+        {% empty %}
+
+            <li>
+                Nenhum serviço cadastrado.
+            </li>
+
+        {% endfor %}
+
+    </ul>
+
+{% endblock %}
