@@ -1,0 +1,43 @@
+{% extends 'interacoes/base.html' %}
+
+
+{% block title %}
+
+    Solicitações
+
+{% endblock %}
+
+
+{% block content %}
+
+    <h2>
+        Solicitações
+    </h2>
+
+    <a href="{% url 'criar_solicitacao' %}">
+        Nova solicitação
+    </a>
+
+    <ul>
+
+        {% for solicitacao in solicitacoes %}
+
+            <li>
+
+                <a href="{% url 'detalhe_solicitacao' solicitacao.id %}">
+                    {{ solicitacao }}
+                </a>
+
+            </li>
+
+        {% empty %}
+
+            <li>
+                Nenhuma solicitação cadastrada.
+            </li>
+
+        {% endfor %}
+
+    </ul>
+
+{% endblock %}

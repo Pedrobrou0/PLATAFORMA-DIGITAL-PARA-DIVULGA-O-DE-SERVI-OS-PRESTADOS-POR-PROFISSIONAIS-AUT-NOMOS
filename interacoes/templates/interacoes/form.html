@@ -1,0 +1,52 @@
+{% extends 'interacoes/base.html' %}
+
+
+{% block title %}
+
+    Solicitação
+
+{% endblock %}
+
+
+{% block content %}
+
+    <h2>
+        Solicitação {{ solicitacao.id }}
+    </h2>
+
+    <p>
+        Cliente:
+        {{ solicitacao.cliente }}
+    </p>
+
+    <p>
+        Serviço:
+        {{ solicitacao.servico }}
+    </p>
+
+    <p>
+        Descrição:
+        {{ solicitacao.descricao }}
+    </p>
+
+    <p>
+        Status:
+        {{ solicitacao.get_status_display }}
+    </p>
+
+    <p>
+        Data:
+        {{ solicitacao.data_solicitacao }}
+    </p>
+
+    <a href="{% url 'editar_solicitacao' solicitacao.id %}">
+        Editar
+    </a>
+
+    |
+
+    <a href="{% url 'deletar_solicitacao' solicitacao.id %}">
+        Excluir
+    </a>
+
+{% endblock %}
