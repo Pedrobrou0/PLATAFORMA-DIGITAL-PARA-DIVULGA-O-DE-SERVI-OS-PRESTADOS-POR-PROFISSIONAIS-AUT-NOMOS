@@ -61,6 +61,14 @@ def editar_profissional(request, id):
 
 
 def deletar_profissional(request, id):
-    Profissional.objects.get(id=id).delete()
+    profissional = Profissional.objects.get(id=id)
 
-    return redirect('lista_profissionais')
+    if request.method == 'POST':
+        profissional.delete()
+
+        return redirect('lista_profissionais')
+
+    return render(request, 'usuarios/confirmar_delete.html', {
+        'objeto': profissional,
+        'lista_url': 'lista_profissionais'
+    })

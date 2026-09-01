@@ -1,17 +1,43 @@
-<h1>Profissionais</h1>
+{% extends 'usuarios/base.html' %}
 
-<a href="{% url 'criar_profissional' %}">
-    Novo profissional
-</a>
 
-<ul>
-    {% for profissional in profissionais %}
-        <li>
-            <a href="{% url 'detalhe_profissional' profissional.id %}">
-                {{ profissional }}
-            </a>
-        </li>
-    {% empty %}
-        <li>Nenhum profissional cadastrado.</li>
-    {% endfor %}
-</ul>
+{% block title %}
+
+    Profissionais
+
+{% endblock %}
+
+
+{% block content %}
+
+    <h2>
+        Profissionais
+    </h2>
+
+    <a href="{% url 'criar_profissional' %}">
+        Novo profissional
+    </a>
+
+    <ul>
+
+        {% for profissional in profissionais %}
+
+            <li>
+
+                <a href="{% url 'detalhe_profissional' profissional.id %}">
+                    {{ profissional }}
+                </a>
+
+            </li>
+
+        {% empty %}
+
+            <li>
+                Nenhum profissional cadastrado.
+            </li>
+
+        {% endfor %}
+
+    </ul>
+
+{% endblock %}

@@ -1,11 +1,32 @@
-<h1>Profissional</h1>
+{% extends 'usuarios/base.html' %}
 
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
 
-    {{ form.as_p }}
+{% block title %}
 
-    <button type="submit">
-        Salvar
-    </button>
-</form>
+    Profissional
+
+{% endblock %}
+
+
+{% block content %}
+
+    <h2>
+        Profissional
+    </h2>
+
+    <form
+        method="post"
+        enctype="multipart/form-data"
+    >
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit">
+            Salvar
+        </button>
+
+    </form>
+
+{% endblock %}

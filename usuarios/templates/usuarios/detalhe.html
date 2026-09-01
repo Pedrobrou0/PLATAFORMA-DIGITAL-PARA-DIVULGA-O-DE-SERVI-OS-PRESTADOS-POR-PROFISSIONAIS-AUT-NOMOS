@@ -1,26 +1,82 @@
-<h1>{{ profissional }}</h1>
+{% extends 'usuarios/base.html' %}
 
-<p>Usuário: {{ profissional.username }}</p>
-<p>Nome: {{ profissional.first_name }} {{ profissional.last_name }}</p>
-<p>E-mail: {{ profissional.email }}</p>
-<p>Telefone: {{ profissional.telefone }}</p>
-<p>Cidade: {{ profissional.cidade }}</p>
-<p>Descrição: {{ profissional.descricao }}</p>
 
-<h2>Categorias</h2>
+{% block title %}
 
-<ul>
-    {% for categoria in profissional.categorias.all %}
-        <li>{{ categoria.nome }}</li>
-    {% empty %}
-        <li>Nenhuma categoria.</li>
-    {% endfor %}
-</ul>
+    Profissional
 
-<a href="{% url 'editar_profissional' profissional.id %}">
-    Editar
-</a>
+{% endblock %}
 
-<a href="{% url 'deletar_profissional' profissional.id %}">
-    Excluir
-</a>
+
+{% block content %}
+
+    <h2>
+        {{ profissional }}
+    </h2>
+
+    <p>
+        Usuário:
+        {{ profissional.username }}
+    </p>
+
+    <p>
+        Nome:
+        {{ profissional.first_name }}
+        {{ profissional.last_name }}
+    </p>
+
+    <p>
+        E-mail:
+        {{ profissional.email }}
+    </p>
+
+    <p>
+        Telefone:
+        {{ profissional.telefone }}
+    </p>
+
+    <p>
+        Cidade:
+        {{ profissional.cidade }}
+    </p>
+
+    <p>
+        Descrição:
+        {{ profissional.descricao }}
+    </p>
+
+
+    <h3>
+        Categorias
+    </h3>
+
+    <ul>
+
+        {% for categoria in profissional.categorias.all %}
+
+            <li>
+                {{ categoria.nome }}
+            </li>
+
+        {% empty %}
+
+            <li>
+                Nenhuma categoria.
+            </li>
+
+        {% endfor %}
+
+    </ul>
+
+
+    <a href="{% url 'editar_profissional' profissional.id %}">
+        Editar
+    </a>
+
+    |
+
+    <a href="{% url 'deletar_profissional' profissional.id %}">
+        Excluir
+    </a>
+
+{% endblock %}
