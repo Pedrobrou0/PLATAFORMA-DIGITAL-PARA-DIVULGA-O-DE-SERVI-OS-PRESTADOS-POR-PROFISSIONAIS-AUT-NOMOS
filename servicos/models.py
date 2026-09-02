@@ -25,7 +25,7 @@ class Servico(models.Model):
         related_name='servicos'
     )
 
-    categoria = models.ForeignKey(
+    categoria = models.ForeignKey( 
         Categoria,
         on_delete=models.PROTECT,
         related_name='servicos'

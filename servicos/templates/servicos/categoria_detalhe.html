@@ -19,11 +19,19 @@
         {% for profissional in profissionais %}
 
             <li>
+
+                {% if profissional.foto %}
+                    <img src="{{ profissional.foto.url }}"
+                         alt="Foto de {{ profissional.get_full_name }}"
+                         width="80">
+                {% endif %}
+
                 {{ profissional }}
 
                 <a href="{% url 'detalhe_profissional' profissional.id %}">
                     Detalhar
                 </a>
+
             </li>
 
         {% empty %}
@@ -45,6 +53,7 @@
         {% for servico in servicos %}
 
             <li>
+
                 {{ servico.titulo }}
 
                 -
@@ -64,6 +73,7 @@
                 <a href="{% url 'criar_solicitacao' %}?servico={{ servico.id }}">
                     Solicitar serviço
                 </a>
+
             </li>
 
         {% empty %}
