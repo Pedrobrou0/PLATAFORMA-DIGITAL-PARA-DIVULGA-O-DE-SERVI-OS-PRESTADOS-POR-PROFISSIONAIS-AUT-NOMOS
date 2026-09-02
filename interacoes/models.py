@@ -36,6 +36,10 @@ class Solicitacao(models.Model):
         auto_now_add=True
     )
 
+    data_atualizacao = models.DateTimeField(
+        auto_now=True
+    )
+
     def aceitar(self):
         self.status = StatusSolicitacao.ACEITA
         self.save()

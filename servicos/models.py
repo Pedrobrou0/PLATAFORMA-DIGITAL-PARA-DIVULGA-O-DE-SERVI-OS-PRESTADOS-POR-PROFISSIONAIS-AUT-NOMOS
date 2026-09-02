@@ -25,7 +25,7 @@ class Servico(models.Model):
         related_name='servicos'
     )
 
-    categoria = models.ForeignKey( 
+    categoria = models.ForeignKey(
         Categoria,
         on_delete=models.PROTECT,
         related_name='servicos'
@@ -42,6 +42,10 @@ class Servico(models.Model):
         decimal_places=2
     )
 
+    ativo = models.BooleanField(
+        default=True
+    )
+
     imagem = models.ImageField(
         upload_to='servicos/',
         blank=True,
@@ -51,6 +55,14 @@ class Servico(models.Model):
     data_cadastro = models.DateTimeField(
         auto_now_add=True
     )
+
+    def ativar(self):
+        self.ativo = True
+        self.save()
+
+    def desativar(self):
+        self.ativo = False
+        self.save()
 
     def __str__(self):
         return self.titulo
