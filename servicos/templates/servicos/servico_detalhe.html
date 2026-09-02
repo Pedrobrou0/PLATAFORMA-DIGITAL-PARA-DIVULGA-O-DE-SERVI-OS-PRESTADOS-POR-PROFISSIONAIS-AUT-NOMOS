@@ -1,12 +1,8 @@
 {% extends 'servicos/base.html' %}
 
-
 {% block title %}
-
     Serviço
-
 {% endblock %}
-
 
 {% block content %}
 
@@ -38,6 +34,12 @@
         Data:
         {{ servico.data_cadastro }}
     </p>
+
+    <a href="{% url 'criar_solicitacao' %}?servico={{ servico.id }}">
+        Solicitar serviço
+    </a>
+
+    |
 
     <a href="{% url 'editar_servico' servico.id %}">
         Editar
